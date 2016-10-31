@@ -41,6 +41,10 @@ public class BezierSpline : MonoBehaviour
         Mirrored
     }
 
+    //Animaition curve
+
+    public AnimationCurve animationCurve;// = new AnimationCurve();
+
 
 
     public Vector3 GetControlPoint(int index)
@@ -90,6 +94,7 @@ public class BezierSpline : MonoBehaviour
 
     public Vector3 GetPoint(float t)
     {
+        t = animationCurve.Evaluate(t);
         int i;
         if (t >= 1f)
         {

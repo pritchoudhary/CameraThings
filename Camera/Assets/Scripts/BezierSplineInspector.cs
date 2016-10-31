@@ -10,7 +10,7 @@ public class BezierSplineInspector : Editor
     private BezierSpline spline;
     private Transform handleTransform;
     private Quaternion handleRotation;
-
+    
     private void OnSceneGUI()
     {
         spline = target as BezierSpline;
@@ -37,6 +37,9 @@ public class BezierSplineInspector : Editor
 
         ShowDirections();
     }
+
+
+    
 
     private void ShowDirections()
     {
@@ -118,6 +121,7 @@ public class BezierSplineInspector : Editor
             spline.AddCurve();
             EditorUtility.SetDirty(spline);
         }
+        EditorGUILayout.CurveField("Timeline", spline.animationCurve);
     }
 
     private void DrawSelectedPointInspector()
